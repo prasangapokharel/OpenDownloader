@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="hidden md:block sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto flex h-14 max-w-6xl items-center px-4">
           <Link href="/" className="flex items-center gap-2 font-semibold">
             <Image src="/logo/1.jpg" alt="OpenDownloader" width={24} height={24} className="size-6 rounded" />
