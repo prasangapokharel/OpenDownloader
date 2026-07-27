@@ -36,9 +36,9 @@ export function DownloadDrawer({ open, onOpenChange, item }: DownloadDrawerProps
           </DrawerDescription>
         </DrawerHeader>
 
-        <div className="flex flex-col items-center gap-4 px-4 py-6">
-          <div className="flex size-16 items-center justify-center rounded-full bg-primary/10">
-            <HugeiconsIcon icon={DownloadIcon} strokeWidth={2} className="size-8 text-primary" />
+          <div className="flex flex-col items-center gap-4 px-4 py-6">
+          <div className="flex size-20 items-center justify-center">
+            <img src="/downlaodiconfordrawer/1.png" alt="Download" className="size-20" />
           </div>
 
           <div className="w-full space-y-1.5">

@@ -9,12 +9,12 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
         <div className="mx-auto flex h-14 max-w-6xl items-center px-4">
           <Link href="/" className="flex items-center gap-2 font-semibold">
             <Image src="/logo/1.jpg" alt="OpenDownloader" width={24} height={24} className="size-6 rounded" />
-            OpenDownloader
+            <span className="hidden md:inline">OpenDownloader</span>
             <Badge variant="secondary" className="text-[10px] font-normal leading-none">
               Beta
             </Badge>
           </Link>
-          <nav className="ml-auto flex gap-4 text-sm text-muted-foreground">
+          <nav className="ml-auto hidden items-center gap-4 text-sm text-muted-foreground md:flex">
             <Link href="/terms-service">Terms</Link>
             <Link href="/privacy">Privacy</Link>
           </nav>
