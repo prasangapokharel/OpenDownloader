@@ -82,13 +82,16 @@ export function MobilePasteButton() {
 
   return (
     <>
-      <button
-        onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-50 flex size-16 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition-transform active:scale-90 hover:scale-105 md:hidden"
-        aria-label="Paste and download"
-      >
-        <HugeiconsIcon icon={ClipboardPasteIcon} strokeWidth={2} className="size-7" />
-      </button>
+      <div className="flex flex-col items-center gap-4 py-8 md:hidden">
+        <button
+          onClick={() => setOpen(true)}
+          className="flex size-24 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition-transform active:scale-90 hover:scale-105"
+          aria-label="Paste and download"
+        >
+          <HugeiconsIcon icon={ClipboardPasteIcon} strokeWidth={2} className="size-10" />
+        </button>
+        <p className="text-sm text-muted-foreground">Tap to paste & download</p>
+      </div>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-w-xs rounded-2xl p-6 text-center">
           <DialogHeader>

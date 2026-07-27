@@ -1,4 +1,5 @@
 import { UrlForm } from "./url-form"
+import { MobilePasteButton } from "./mobile-paste-button"
 
 export function Hero() {
   return (
@@ -9,7 +10,10 @@ export function Hero() {
       <p className="max-w-2xl text-muted-foreground">
         Paste a link from YouTube, TikTok, Instagram, X, and more. Extract videos, images, and audio instantly.
       </p>
-      <UrlForm />
+      <div className="hidden md:block w-full">
+        <UrlForm />
+      </div>
+      <MobilePasteButton />
     </section>
   )
 }
