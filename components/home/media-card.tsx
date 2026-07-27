@@ -44,7 +44,7 @@ export function MediaCard({ item, autoOpen }: MediaCardProps) {
 
   const quickDownload = useCallback(() => {
     const a = document.createElement("a")
-    a.href = item.directUrl ?? item.url
+    a.href = item.url
     a.download = labelFilename(item.filename)
     a.click()
     toast.add({ title: "Downloading", description: `${labelFilename(item.filename)} download started` })

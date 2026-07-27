@@ -5,9 +5,15 @@ export async function GET(request: NextRequest) {
   if (!url) return Response.json({ error: "Missing url param" }, { status: 400 })
 
   try {
-    const resp = await fetch(url, {
-      headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" },
-    })
+    const headers: Record<string, string> = {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    }
+    if (/video\.twimg/i.test(url)) {
+      headers["Referer"] = "https://x.com/"
+      headers["Origin"] = "https://x.com/"
+    }
+    if (/ssl\.cf|cfsite/i.test(url)) headers["Referer"] = "https://mediafire.com/"
+    const resp = await fetch(url, { headers })
     if (!resp.ok) return Response.json({ error: "Failed to fetch media" }, { status: 502 })
 
     const contentType = resp.headers.get("content-type") || "application/octet-stream"

@@ -58,7 +58,7 @@ export function DownloadDrawer({ open, onOpenChange, item }: DownloadDrawerProps
         <DrawerFooter>
           {!downloading && progress === 0 ? (
             <div className="flex gap-2">
-              <Button className="flex-1" onClick={() => start(item.directUrl ?? item.url, labelFilename(item.filename))}>
+              <Button className="flex-1" onClick={() => start(item.url, labelFilename(item.filename))}>
                 <HugeiconsIcon icon={DownloadIcon} strokeWidth={2} className="size-4" />
                 Start Download
               </Button>
