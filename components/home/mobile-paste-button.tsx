@@ -82,8 +82,8 @@ export function MobilePasteButton() {
 
   return (
     <>
-      <div className="md:hidden">
-        <button onClick={() => setOpen(true)} className="fixed bottom-8 right-8 z-50" aria-label="Paste and download">
+      <div className="flex justify-center md:hidden">
+        <button onClick={() => setOpen(true)} aria-label="Paste and download">
           <img src="/ball/1.gif" alt="" className="size-48" />
         </button>
       </div>

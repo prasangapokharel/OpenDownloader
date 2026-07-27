@@ -3,7 +3,7 @@ import { MobilePasteButton } from "./mobile-paste-button"
 
 export function Hero() {
   return (
-    <section className="mx-auto flex max-w-3xl flex-col items-center gap-6 py-16 text-center">
+    <section className="mx-auto flex max-w-3xl flex-col items-center gap-6 py-12 pt-20 pb-32 text-center md:py-16">
       <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
         Download Media from Any Platform
       </h1>
