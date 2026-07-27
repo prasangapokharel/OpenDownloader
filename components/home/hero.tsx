@@ -1,0 +1,15 @@
+import { UrlForm } from "./url-form"
+
+export function Hero() {
+  return (
+    <section className="mx-auto flex max-w-3xl flex-col items-center gap-6 py-16 text-center">
+      <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+        Download Media from Any Platform
+      </h1>
+      <p className="max-w-2xl text-muted-foreground">
+        Paste a link from YouTube, TikTok, Instagram, X, and more. Extract videos, images, and audio instantly.
+      </p>
+      <UrlForm />
+    </section>
+  )
+}
