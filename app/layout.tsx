@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   title: "OpenDownloader – Free Media Downloader for YouTube, TikTok, Instagram, X & More",
   description:
     "Download videos, images, and audio from YouTube, X (Twitter), Instagram, TikTok, Facebook, Pinterest, Reddit, Google Drive, and MediaFire. Fast, free, no sign-up required.",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   keywords: [
     "video downloader",
     "media downloader",
