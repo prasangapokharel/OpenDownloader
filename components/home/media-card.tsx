@@ -66,9 +66,11 @@ export function MediaCard({ item, autoOpen }: MediaCardProps) {
             <div className="relative aspect-video">
               <video
                 src={item.url}
+                poster="/placeholder/1.jpg"
                 controls
                 className="h-full w-full"
                 preload="metadata"
+                onError={(e) => { (e.currentTarget as HTMLVideoElement).poster = "/placeholder/1.jpg" }}
               >
                 <track kind="captions" />
               </video>
@@ -115,6 +117,7 @@ export function MediaCard({ item, autoOpen }: MediaCardProps) {
                 alt={item.filename ?? "Media"}
                 className="h-full w-full object-cover transition-transform duration-150 hover:scale-105"
                 loading="lazy"
+                onError={(e) => { (e.currentTarget as HTMLImageElement).src = "/placeholder/1.jpg" }}
               />
               <button
                 onClick={quickDownload}
@@ -155,9 +158,9 @@ export function MediaCard({ item, autoOpen }: MediaCardProps) {
           )}
         </div>
 
-        <div className="flex items-center gap-2 border-t px-3 py-2.5">
-          <Button onClick={() => setDrawerOpen(true)}>
-            <HugeiconsIcon icon={DownloadIcon} strokeWidth={2} className="size-4" />
+        <div className="flex items-center gap-2 border-t px-3 py-3">
+          <Button size="lg" className="flex-1" onClick={() => setDrawerOpen(true)}>
+            <HugeiconsIcon icon={DownloadIcon} strokeWidth={2} className="size-5" />
             Download
           </Button>
           {item.type === "image" && (

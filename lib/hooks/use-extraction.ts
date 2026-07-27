@@ -3,6 +3,29 @@
 import { useState, useCallback } from "react"
 import type { ExtractionResult, JobStatus } from "@/lib/types"
 
+const STORAGE_KEY = "opendownloader_last_result"
+
+function loadSaved(): ExtractionResult | null {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    return raw ? (JSON.parse(raw) as ExtractionResult) : null
+  } catch {
+    return null
+  }
+}
+
+function saveResult(data: ExtractionResult) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+  } catch { /* quota exceeded */ }
+}
+
+function clearSaved() {
+  try {
+    localStorage.removeItem(STORAGE_KEY)
+  } catch { /* noop */ }
+}
+
 interface UseExtractionReturn {
   submit: (url: string) => Promise<string>
   status: JobStatus | null
@@ -13,8 +36,8 @@ interface UseExtractionReturn {
 }
 
 export function useExtraction(): UseExtractionReturn {
-  const [status, setStatus] = useState<JobStatus | null>(null)
-  const [result, setResult] = useState<ExtractionResult | null>(null)
+  const [status, setStatus] = useState<JobStatus | null>(() => loadSaved()?.status ?? null)
+  const [result, setResult] = useState<ExtractionResult | null>(() => loadSaved())
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
@@ -40,6 +63,7 @@ export function useExtraction(): UseExtractionReturn {
 
       if (data.result) {
         setResult(data.result)
+        saveResult(data.result)
         setStatus(data.result.status)
         setLoading(false)
         return data.messageId
@@ -79,6 +103,7 @@ export function useExtraction(): UseExtractionReturn {
 
         const data: ExtractionResult = await res.json()
         setResult(data)
+        saveResult(data)
         setStatus(data.status)
         setLoading(false)
 
@@ -100,6 +125,7 @@ export function useExtraction(): UseExtractionReturn {
     setResult(null)
     setError(null)
     setLoading(false)
+    clearSaved()
   }, [])
 
   return { submit, status, result, error, loading, reset }
