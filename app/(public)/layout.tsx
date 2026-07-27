@@ -21,10 +21,10 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
         </div>
       </header>
       <main className="flex-1">{children}</main>
-      <footer className="hidden md:block border-t py-6 text-center text-sm text-muted-foreground">
+      <footer className="border-t py-6 text-center text-sm text-muted-foreground">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 sm:flex-row sm:justify-between">
           <p>&copy; {new Date().getFullYear()} OpenDownloader. All rights reserved.</p>
-          <div className="hidden items-center gap-4 sm:flex">
+          <div className="flex items-center gap-4">
             <Link
               href="https://github.com/prasangapokharel/OpenDownloader"
               target="_blank"
@@ -40,14 +40,14 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
               href="https://github.com/prasangapokharel/OpenDownloader/releases"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-foreground"
+              className="hidden transition-colors hover:text-foreground sm:inline"
             >
               Releases
             </Link>
-            <Link href="/terms-service" className="transition-colors hover:text-foreground">
+            <Link href="/terms-service" className="hidden transition-colors hover:text-foreground sm:inline">
               Terms
             </Link>
-            <Link href="/privacy" className="transition-colors hover:text-foreground">
+            <Link href="/privacy" className="hidden transition-colors hover:text-foreground sm:inline">
               Privacy
             </Link>
           </div>
