@@ -82,9 +82,13 @@ export function MobilePasteButton() {
 
   return (
     <>
-      <div className="flex flex-col items-center gap-4 py-8 md:hidden">
-        <button onClick={() => setOpen(true)} aria-label="Paste and download">
-          <img src="/ball/1.gif" alt="Paste & Download" className="size-24" />
+      <div className="flex flex-col items-center gap-4 py-16 md:hidden">
+        <button
+          onClick={() => setOpen(true)}
+          className="flex size-24 items-center justify-center rounded-full bg-primary p-0 shadow-lg shadow-primary/30 transition-transform active:scale-90 hover:scale-105"
+          aria-label="Paste and download"
+        >
+          <img src="/ball/1.gif" alt="" className="size-full rounded-full object-cover" />
         </button>
         <p className="text-sm text-muted-foreground">Tap to paste & download</p>
       </div>

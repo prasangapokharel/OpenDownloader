@@ -6,8 +6,10 @@ export default function HomePage() {
   return (
     <div className="mx-auto px-4">
       <Hero />
-      <SupportedPlatforms />
-      <Faq />
+      <div className="hidden md:block">
+        <SupportedPlatforms />
+        <Faq />
+      </div>
     </div>
   )
 }
