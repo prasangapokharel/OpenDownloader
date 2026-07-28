@@ -84,7 +84,7 @@ export function MobilePasteButton() {
     <>
       <div className="flex justify-center md:hidden">
         <button onClick={() => setOpen(true)} aria-label="Paste and download">
-          <img src="/ball/1.gif" alt="" className="size-48" />
+          <img src="/ball/1.png" alt="" className="size-48" />
         </button>
       </div>
       <Dialog open={open} onOpenChange={setOpen}>
